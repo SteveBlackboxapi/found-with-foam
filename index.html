@@ -4,87 +4,109 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Found with Foam — Volume One</title>
+<meta name="description" content="Foam search now reads your whole roster, looks inside every post and ranks by fit." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 <style>
-:root{--ink:#111;--cream:#f4f1e8;--lime:#e3f15a;--muted:#6a6a6a;--pitch:#e6e8df;--burg:#5f1938;--kit:#f6efe6}
+:root{
+  --ink:#111111;
+  --cream:#f3efe6;
+  --lime:#e3f15a;
+  --muted:#6b6b6b;
+  --line:rgba(17,17,17,.12);
+  --pitch:#e4e7dc;
+  --burg:#5b1634;
+  --kit:#f4eee6;
+  --black:#0b0b0b;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+body{font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px;background:rgba(244,241,232,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.08)}
-.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:.08em;font-size:13px}
-.links{display:flex;gap:20px}
-.links a{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:rgba(243,239,230,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:.16em;font-size:13px}
+.links{display:flex;gap:22px}
+.links a{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .links a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;background:var(--lime);color:var(--ink);font-weight:700;font-size:14px;padding:12px 18px;border-radius:999px}
-.btn-dark{background:#111;color:#fff}
-.issue{background:#111;padding:28px 16px 20px;display:flex;flex-direction:column;align-items:center}
-.issue img{width:min(680px,100%);height:auto;box-shadow:0 28px 80px rgba(0,0,0,.5)}
-.issue-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
-section.page{padding:72px 22px 80px}
-.wrap{max-width:1040px;margin:0 auto}
-.running{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;font-weight:700;color:var(--muted);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:14px;margin-bottom:28px}
-h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(42px,7vw,74px);letter-spacing:-.02em;line-height:.92;margin-bottom:12px}
-.deck{font-family:"Libre Baskerville",Georgia,serif;font-style:italic;font-size:clamp(17px,2vw,23px);margin-bottom:24px}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;line-height:1.55;font-size:16px}
-.band{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;border-top:1px solid rgba(0,0,0,.16);margin-top:28px;padding-top:16px}
-.band b{font-family:"Barlow Condensed",sans-serif;font-size:32px}
-.whats{background:#fff;border-radius:14px;padding:22px 24px;margin:28px 0 18px;box-shadow:0 10px 28px rgba(0,0,0,.06)}
-.whats h3{font-size:11px;letter-spacing:.12em;margin-bottom:12px}
-.whats ul{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
-.whats li{list-style:none;padding-left:16px;position:relative;font-size:15px}
-.whats li:before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--lime)}
-.photo{width:100%;border-radius:8px}
-.search{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:14px 16px;margin:16px 0;box-shadow:0 8px 20px rgba(0,0,0,.08);font-weight:500}
-.search.outline{box-shadow:none;border:1.5px solid #8ec8f0}
-.end{display:flex;justify-content:flex-end;margin-top:8px}
-.split{display:grid;grid-template-columns:260px 1fr;gap:36px;align-items:start}
-.step{margin:0 0 22px}
-.n{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:700}
-.step h3{font-size:18px;margin:4px 0}
-.step p{font-size:14px;line-height:1.45;color:#333}
-.caption{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.12em;margin-top:10px}
-.work{background:#0c0c0c;color:#f2f2f2}
-.work .running{color:#aaa;border-color:#2a2a2a}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--lime);color:var(--ink);font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.hero{background:var(--black);padding:36px 20px 44px;display:flex;flex-direction:column;align-items:center}
+.mast{width:min(560px,92vw);display:flex;justify-content:space-between;color:#9a9a9a;font-size:10px;letter-spacing:.18em;font-weight:700;margin-bottom:18px;text-transform:uppercase}
+.cover{width:min(560px,92vw);border-radius:2px;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+section.page{padding:88px 24px 96px}
+.wrap{max-width:1080px;margin:0 auto}
+.running{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:34px}
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(48px,8vw,84px);letter-spacing:-.03em;line-height:.9;margin-bottom:14px}
+.deck{font-family:"Libre Baskerville",Georgia,serif;font-style:italic;font-size:clamp(18px,2.1vw,24px);line-height:1.35;margin-bottom:28px}
+.deck.plain{font-family:"DM Sans",sans-serif;font-style:normal;font-size:18px;color:#333}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;line-height:1.6;font-size:16.5px;color:#222}
+.band{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;border-top:1px solid rgba(17,17,17,.18);margin-top:34px;padding-top:18px}
+.band b{font-family:"Barlow Condensed",sans-serif;font-size:34px}
+.whats{background:#fff;border-radius:16px;padding:26px 28px;margin:32px 0 22px;box-shadow:0 18px 40px rgba(0,0,0,.06)}
+.whats h3{font-size:11px;letter-spacing:.16em;margin-bottom:14px}
+.whats ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
+.whats li{list-style:none;padding-left:18px;position:relative;font-size:15px}
+.whats li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.photo{width:100%;border-radius:10px}
+.bleed{margin:8px 0 0;overflow:hidden;border-radius:12px;background:#d7c3a4}
+.bleed img{width:100%;height:280px;object-fit:cover;object-position:center 20%}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:15px 18px;margin:16px 0;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:500}
+.search.outline{box-shadow:none;border:1.5px solid #7ec4ef}
+.end{display:flex;justify-content:flex-end;margin-top:10px}
+.split{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start;margin-top:8px}
+.step{margin:0 0 26px}
+.n{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+.step h3{font-size:19px;margin:5px 0 6px}
+.step p{font-size:14.5px;line-height:1.5;color:#444}
+.caption{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.14em;margin-top:12px;text-transform:uppercase}
+.work{background:var(--black);color:#f3f3f3}
+.work .running{color:#8d8d8d;border-color:#262626}
 .work .deck{color:var(--lime)}
 .work .search{color:#111}
-.lead{max-width:720px;color:#ddd;margin-bottom:18px}
-.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:28px}
-.trio h3{font-family:"Libre Baskerville",serif;font-style:italic;color:var(--lime);font-size:26px;font-weight:400}
-.trio p{color:#c8c8c8;font-size:14px;margin-top:8px}
+.lead{max-width:760px;color:#cfcfcf;margin-bottom:20px;line-height:1.55;font-size:16px}
+.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:32px}
+.trio h3{font-family:"Libre Baskerville",serif;font-style:italic;color:var(--lime);font-size:28px;font-weight:400}
+.trio p{color:#bdbdbd;font-size:14.5px;margin-top:8px;line-height:1.45}
 .pitch{background:var(--pitch)}
 .num{width:26px;height:26px;border-radius:50%;background:var(--lime);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-right:8px}
-.cards{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:12px;margin-top:28px}
-.card{border-radius:14px;padding:18px;min-height:168px}
+.cards{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:14px;margin-top:32px}
+.card{border-radius:16px;padding:20px;min-height:176px}
 .c-burg{background:var(--burg);color:#fff}
 .c-kit{background:var(--kit)}
 .c-white{background:#fff}
-.card h3{font-size:11px;letter-spacing:.08em;margin-bottom:14px}
-.big{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:34px}
-.cities li{display:flex;justify-content:space-between;list-style:none;padding:5px 0;font-size:13px}
-.stats{display:flex;gap:28px;align-items:center;flex-wrap:wrap;margin-top:22px}
-.stats b{font-family:"Barlow Condensed",sans-serif;font-size:30px}
-.stats small{color:var(--muted);margin-left:6px}
-footer{background:#111;color:#eee;padding:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em}
+.card h3{font-size:11px;letter-spacing:.1em;margin-bottom:16px;font-weight:700}
+.big{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:36px}
+.cities li{display:flex;justify-content:space-between;list-style:none;padding:6px 0;font-size:13.5px;border-bottom:1px solid rgba(0,0,0,.06)}
+.metric{background:var(--kit);border-radius:12px;padding:14px 16px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:24px;margin-top:8px}
+.stats{display:flex;gap:32px;align-items:center;flex-wrap:wrap;margin-top:26px}
+.stats b{font-family:"Barlow Condensed",sans-serif;font-size:34px}
+.stats small{color:var(--muted);margin-left:8px;font-size:13px}
+footer{background:#111;color:#eee;padding:26px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em}
 footer a{color:var(--lime)}
-@media(max-width:860px){.links{display:none}.cols,.split,.trio,.cards,.whats ul{grid-template-columns:1fr}section.page{padding:48px 16px}}
+@media(max-width:860px){.links{display:none}.cols,.split,.trio,.cards,.whats ul{grid-template-columns:1fr}section.page{padding:56px 18px 64px}.bleed img{height:210px}.nav{padding:12px 16px}}
 </style>
 </head>
 <body>
 <header class="nav">
   <a class="brand" href="#cover">FOUND WITH FOAM</a>
   <nav class="links">
-    <a href="#note">Note</a><a href="#talent">Talent</a><a href="#work">Work</a><a href="#pitch">Pitch</a>
+    <a href="#note">Note</a>
+    <a href="#talent">Talent</a>
+    <a href="#work">Work</a>
+    <a href="#pitch">Pitch</a>
   </nav>
   <a class="btn" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
 </header>
-<section class="issue" id="cover">
-  <img src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/cover.svg" alt="Found with Foam Volume One cover" />
-  <div class="issue-cta">
+<section class="hero" id="cover">
+  <div class="mast"><span>Volume One</span><span>For Sixteenth</span></div>
+  <img class="cover" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/cover.svg" alt="Found with Foam Volume One cover" />
+  <div class="hero-cta">
     <a class="btn" href="#note">Read the issue</a>
-    <a class="btn btn-dark" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
+    <a class="btn btn-ghost" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
   </div>
 </section>
 <section class="page" id="note">
@@ -107,7 +129,7 @@ footer a{color:var(--lime)}
         <li>Add channels, city demographics and metrics manually</li>
       </ul>
     </div>
-    <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Fitness creator, New York waterfront" />
+    <div class="bleed"><img src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Fitness creator at golden hour, New York waterfront" /></div>
     <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Fitness creators in New York who wear Nike</a>
     <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search what you need →</a></div>
   </div>
@@ -116,7 +138,7 @@ footer a{color:var(--lime)}
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>01 / THE TALENT</span></div>
     <h2>Find your Talent.</h2>
-    <p class="deck" style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:18px">The right Creator could already be on your roster. Ask for what the brief needs, in your own words.</p>
+    <p class="deck plain">The right Creator could already be on your roster. Ask for what the brief needs, in your own words.</p>
     <a class="search outline" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Creators on my roster who post healthy vegetarian recipes</a>
     <div class="split">
       <div>
@@ -125,8 +147,8 @@ footer a{color:var(--lime)}
         <div class="step"><div class="n">03</div><h3>Build your shortlist</h3><p>Use the results to choose who belongs in the pitch.</p></div>
       </div>
       <figure>
-        <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/talent.svg" alt="Illustrative talent search" />
-        <figcaption class="caption">ILLUSTRATIVE TALENT SEARCH</figcaption>
+        <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/talent.svg" alt="Illustrative talent search results" />
+        <figcaption class="caption">Illustrative talent search</figcaption>
       </figure>
     </div>
     <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search your roster →</a></div>
@@ -139,7 +161,7 @@ footer a{color:var(--lime)}
     <p class="deck">Foam watches the video now.</p>
     <p class="lead">Visual search finds what appears on screen. Audio and caption search find what's said or written. Find the post, then jump to the relevant moment.</p>
     <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Anti-aging skincare posts from the last 90 days</a>
-    <img class="photo" style="margin-top:8px" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/work.svg" alt="Seen, heard and written in Foam" />
+    <img class="photo" style="margin-top:10px" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/work.svg" alt="Seen, heard and written inside Foam" />
     <div class="trio">
       <div><h3>Seen.</h3><p>What appears on screen, even when the caption doesn't name it.</p></div>
       <div><h3>Heard.</h3><p>What is said in the clip. Search for the word or phrase you need.</p></div>
@@ -152,35 +174,35 @@ footer a{color:var(--lime)}
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>03 / THE PITCH</span></div>
     <h2>Make the pitch.</h2>
-    <p class="deck" style="font-style:normal;font-family:'DM Sans',sans-serif;font-size:18px">Customize the story to win the deal.</p>
+    <p class="deck plain">Customize the story to win the deal.</p>
     <div class="split">
       <div>
         <div class="step"><h3><span class="num">1</span>Make it unique</h3><p>Edit the bio, profile picture and verticals, kit by kit.</p></div>
         <div class="step"><h3><span class="num">2</span>Build the story</h3><p>Pick content and analytics with the builder in view. Link platforms. Include city demographics.</p></div>
         <div class="step"><h3><span class="num">3</span>Close the deal</h3><p>Type in lower-funnel metrics APIs don't give you — like Instagram link clicks.</p></div>
       </div>
-      <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/kit.svg" alt="Samantha Pikka media kit" />
+      <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/kit.svg" alt="Samantha Pikka media kit in Foam" />
     </div>
     <div class="cards">
       <div class="card c-burg">
         <h3>ADD AND LINK PLATFORMS</h3>
         <div class="big">1,155,300</div>
         <p style="opacity:.8;font-size:12px;margin-top:4px">Total audience</p>
-        <p style="opacity:.8;font-size:12px;margin-top:18px">IG · TikTok · YouTube · +10K</p>
+        <p style="opacity:.8;font-size:13px;margin-top:22px">IG · TikTok · YouTube · +10K</p>
       </div>
       <div class="card c-kit">
         <h3>CITY DISTRIBUTION</h3>
         <ul class="cities">
-          <li><span>Los Angeles, CA</span><b>28%</b></li>
-          <li><span>New York, NY</span><b>18%</b></li>
-          <li><span>London, UK</span><b>12%</b></li>
-          <li><span>Miami, FL</span><b>9%</b></li>
-          <li><span>Toronto, ON</span><b>7%</b></li>
+          <li><span>New York, NY</span><b>1.3%</b></li>
+          <li><span>Los Angeles, CA</span><b>0.8%</b></li>
+          <li><span>London, UK</span><b>0.7%</b></li>
+          <li><span>Chicago, IL</span><b>0.6%</b></li>
+          <li><span>Delhi, IN</span><b>0.6%</b></li>
         </ul>
       </div>
       <div class="card c-white">
         <h3>ADD A METRIC YOU HAVE</h3>
-        <div style="background:var(--kit);border-radius:10px;padding:12px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;margin-top:10px">230  Link clicks</div>
+        <div class="metric">230 &nbsp;<span style="font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif">Link clicks</span></div>
         <p style="color:var(--muted);font-size:12px;margin-top:16px">Typed in. Not invented by an API.</p>
       </div>
     </div>
