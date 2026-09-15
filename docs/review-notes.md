@@ -12,7 +12,7 @@
 
 ## Completed checks
 
-- Static scan passed: 18 links, 13 IDs, 14 images, 20 local assets.
+- Static scan passed after the shell update: 18 links, 13 IDs, 16 images, 20 local assets.
 - JavaScript syntax passed.
 - Whitespace checks passed.
 - Every declared image aspect ratio matches its file.
@@ -22,9 +22,9 @@
 
 ## Remaining checks and limits
 
-- Browser access failed before navigation because its administrator-policy security check was unavailable. No desktop/mobile screenshot review or interactive browser test was completed. Responsive layouts are implemented but still need visual review.
+- Browser access failed before navigation during both the initial rebuild and the shell update. No desktop/mobile screenshot review or interactive browser test was completed. Responsive layouts are implemented but still need visual review.
 - The hero is generated artwork, not a pixel-exact texture placement. Its fine print can differ from the reference. The standalone cover and PDF preserve the actual source artwork.
-- The live GitHub Pages URL returns 404. Existing deployment run 35013772331 fails at Configure Pages with “Get Pages site failed”; Pages must be enabled with GitHub Actions as its source before deployment can succeed.
+- The initial Pages configuration failure has been resolved. Pages is enabled for GitHub Actions, and the first rebuild deployed successfully at https://steveblackboxapi.github.io/found-with-foam/.
 
 Local preview: http://127.0.0.1:4173/
 

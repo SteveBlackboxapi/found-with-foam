@@ -20,9 +20,13 @@ These are static integrity checks, not a substitute for a visual browser review.
 
 ## Publishing
 
-The existing GitHub Actions workflow publishes `main` to GitHub Pages. In repository Settings → Pages, the source must be **GitHub Actions**. The expected URL is https://steveblackboxapi.github.io/found-with-foam/.
+The GitHub Actions workflow publishes `main` to GitHub Pages at https://steveblackboxapi.github.io/found-with-foam/. Pages is enabled with **GitHub Actions** as its source. The initial rebuild deployed successfully after pull request #1 was merged.
 
-That URL returned HTTP 404 during this repair. A successful deployment and a live URL check are still required before sharing it. HTML Preview is not the canonical host: it can handle scripts, styles and assets differently from normal hosting.
+Changes on review branches are available in the local preview and deploy after merging to `main`.
+
+## Product styling
+
+The site shell uses Foam's supplied F icon, a cool grey surround, navy branding, rounded surfaces and blue navigation controls. The magazine retains its editorial typography and lime, black and sage chapter colors.
 
 ## Content and assets
 
@@ -31,5 +35,6 @@ That URL returned HTTP 404 during this repair. A successful deployment and a liv
 - The overhead hero is an AI-generated photographic mockup made with the supplied cover and table references. The small print in that mockup is a generated reproduction; the original cover and downloadable PDF preserve the source artwork.
 - See `docs/hero-art-direction.md` for the full generation prompt.
 - DM Sans is self-hosted under its included SIL Open Font License.
+- `assets/images/foam-app-icon.png` is the user-supplied product logo, preserved unchanged and used in the header, footer, favicon and home-screen icon.
 - All product calls to action use the destinations embedded in the PDF: Talent Directory, Explore Content and Media Kits. Product access may require signing in to Foam.
 - Search queries and timestamps are editorial examples. The highlighted skincare result links to its explanatory panel; actual content search and playback happen in Foam.

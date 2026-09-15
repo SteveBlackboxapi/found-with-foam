@@ -20,6 +20,13 @@
   font-display:swap
 }
 :root {
+  --shell:#f4f5f6;
+  --navy:#202938;
+  --blue:#155dfb;
+  --blue-hover:#104cda;
+  --blue-tint:#e4edff;
+  --shell-line:#e3e5e8;
+  --shell-gutter:clamp(12px,2vw,32px);
   --paper:#f7f6f2;
   --white:#fff;
   --ink:#151613;
@@ -40,7 +47,7 @@ html {
 }
 body {
   margin:0;
-  background:var(--paper);
+  background:var(--shell);
   color:var(--ink);
   font-family:'DM Sans',Arial,sans-serif;
   -webkit-font-smoothing:antialiased
@@ -61,7 +68,7 @@ button,a {
   -webkit-tap-highlight-color:transparent
 }
 a:focus-visible,button:focus-visible {
-  outline:3px solid #467b87;
+  outline:3px solid var(--blue);
   outline-offset:5px
 }
 ::selection {
@@ -100,73 +107,99 @@ a:focus-visible,button:focus-visible {
   align-items:center;
   justify-content:space-between;
   gap:28px;
-  padding:0 var(--gutter);
-  background:var(--paper);
-  border-bottom:1px solid var(--line)
+  padding:0 var(--shell-gutter);
+  background:var(--shell);
+  color:var(--navy);
+  border-bottom:1px solid var(--shell-line)
 }
 .brand {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
   font-size:18px;
   font-weight:900;
   letter-spacing:-.06em;
-  white-space:nowrap
+  white-space:nowrap;
+  flex:none;
+  color:var(--navy)
 }
-.brand>span:not(.brand-dot) {
+.brand-icon {
+  width:42px;
+  height:42px;
+  flex:none
+}
+.brand-wordmark small {
   font-weight:400;
   font-size:.64em;
   letter-spacing:-.03em
 }
-.brand-dot {
-  color:#657624
-}
 .chapter-nav {
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:8px;
   font-size:13px;
   font-weight:700;
   height:100%
 }
 .chapter-nav a {
-  height:100%;
+  min-height:40px;
   display:flex;
   align-items:center;
   gap:7px;
-  position:relative
+  padding:0 16px;
+  border-radius:999px;
+  transition:background .2s,color .2s
 }
-.chapter-nav a::after {
-  position:absolute;
-  content:'';
-  bottom:0;
-  left:0;
-  right:0;
-  height:3px;
-  background:var(--ink);
-  transform:scaleX(0);
-  transition:transform .2s
+.chapter-nav a:hover {
+  background:#e9ebef
 }
-.chapter-nav a:hover::after,.chapter-nav a[aria-current]::after {
-  transform:scaleX(1)
+.chapter-nav a[aria-current] {
+  background:var(--blue-tint);
+  color:var(--blue)
 }
 .chapter-nav a span {
   font-size:10px;
   font-weight:400;
-  color:var(--muted)
+  color:inherit;
+  opacity:.7
 }
 .header-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
   font-size:13px;
+  font-weight:700;
   white-space:nowrap;
-  border-bottom:1px solid var(--ink);
-  padding:7px 0
+  background:var(--blue);
+  color:#fff;
+  border-radius:999px;
+  min-height:42px;
+  padding:10px 20px;
+  transition:background .2s
+}
+.header-link:hover {
+  background:var(--blue-hover)
 }
 .header-link span {
-  padding-left:17px;
-  font-size:18px
+  font-size:18px;
+  line-height:1
+}
+.magazine-shell {
+  margin:20px var(--shell-gutter) 0;
+  border:1px solid var(--shell-line);
+  border-radius:24px;
+  overflow:hidden;
+  background:var(--paper)
 }
 .issue-label {
   display:flex;
   justify-content:space-between;
   gap:20px;
   padding:21px var(--gutter);
+  background:var(--white);
+  color:var(--navy);
+  border-bottom:1px solid var(--shell-line);
   font-size:10px;
   font-weight:700;
   letter-spacing:.16em
@@ -359,7 +392,7 @@ h2 {
   padding:20px 24px;
   min-width:0;
   background:#fff;
-  color:var(--ink);
+  color:var(--navy);
   border-radius:40px;
   font-size:18px;
   line-height:1.4
@@ -418,8 +451,8 @@ h2 {
   color:var(--muted)
 }
 .search-outlined {
-  border:1.5px solid #8ecbd1;
-  box-shadow:0 0 0 3px #f5fcfd
+  border:1.5px solid var(--blue);
+  box-shadow:0 0 0 3px #155dfb0a
 }
 .talent-layout {
   display:grid;
@@ -924,7 +957,8 @@ h2 {
   letter-spacing:.07em
 }
 .site-footer {
-  padding:30px var(--gutter);
+  padding:30px var(--shell-gutter);
+  color:var(--navy);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -948,7 +982,10 @@ h2 {
 }
 @media(max-width:1000px) {
   .chapter-nav {
-    gap:18px
+    gap:4px
+  }
+  .chapter-nav a {
+    padding:0 12px
   }
   .site-header {
     gap:18px
@@ -999,29 +1036,43 @@ h2 {
     display:grid;
     grid-template-columns:1fr auto;
     grid-template-rows:57px 47px;
-    gap:0 18px;
+    gap:0 12px;
     padding-bottom:0
   }
   .brand {
-    font-size:17px
+    font-size:15px;
+    gap:8px
+  }
+  .brand-icon {
+    width:36px;
+    height:36px
   }
   .chapter-nav {
     grid-column:1/-1;
     grid-row:2;
     justify-content:space-between;
-    border-top:1px solid var(--line);
-    gap:12px;
+    border-top:1px solid var(--shell-line);
+    gap:4px;
     font-size:12px
+  }
+  .chapter-nav a {
+    padding:0 12px;
+    min-height:35px
   }
   .header-link {
     grid-column:2;
     grid-row:1;
     font-size:12px;
-    padding:3px 0
+    padding:8px 14px;
+    min-height:36px;
+    gap:8px
   }
   .header-link span {
-    padding-left:10px;
     font-size:17px
+  }
+  .magazine-shell {
+    margin-top:12px;
+    border-radius:18px
   }
   .issue-label {
     font-size:8px;
@@ -1244,6 +1295,24 @@ h2 {
   }
 }
 @media(max-width:480px) {
+  .brand {
+    font-size:14px;
+    gap:6px
+  }
+  .brand-icon {
+    width:34px;
+    height:34px
+  }
+  .header-link {
+    font-size:11px;
+    padding-inline:12px
+  }
+  .chapter-nav a {
+    padding-inline:10px
+  }
+  .magazine-shell {
+    border-radius:16px
+  }
   .cover-photo {
     aspect-ratio:1.1;
     object-fit:cover;
@@ -1500,7 +1569,7 @@ h2 {
     padding-bottom:80px
   }
   .site-footer .brand {
-    font-size:15px
+    font-size:13px
   }
   .site-footer>a:last-child {
     font-size:10px
@@ -1516,6 +1585,12 @@ h2 {
   }
 }
 @media print {
+  .magazine-shell {
+    margin:0;
+    border:0;
+    border-radius:0;
+    overflow:visible
+  }
   .site-header,.skip-link,.cover,.closing,.site-footer,.button {
     display:none
   }
