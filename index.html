@@ -9,181 +9,104 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
 <style>
-:root{
-  --ink:#111111;
-  --cream:#f3efe6;
-  --paper:#f7f4ee;
-  --lime:#e3f15a;
-  --muted:#6b6b6b;
-  --line:rgba(17,17,17,.12);
-  --pitch:#e4e7dc;
-  --burg:#5b1634;
-  --kit:#f4eee6;
-  --black:#0b0b0b;
-}
+:root{--ink:#111;--cream:#f3efe6;--lime:#e3f15a;--muted:#6b6b6b;--line:rgba(17,17,17,.12);--pitch:#e4e7dc;--burg:#5b1634;--kit:#f4eee6;--black:#0b0b0b}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.nav{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:14px 28px;
-  background:rgba(243,239,230,.92);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
-}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:rgba(243,239,230,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
 .brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:.16em;font-size:13px}
-.links{display:flex;gap:22px}
-.links a{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.links a:hover{color:var(--ink)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  background:var(--lime);color:var(--ink);font-weight:700;font-size:14px;
-  padding:12px 20px;border-radius:999px;transition:transform .15s ease, background .15s ease;
-}
-.btn:hover{transform:translateY(-1px)}
-.btn-dark{background:#111;color:#fff}
-.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
-.hero{
-  position:relative;
-  min-height:86vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
-  padding:28px 20px 36px;
-  overflow:hidden;
-  background:#1a1714;
-}
-.hero-photo{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 62%;
-}
-.hero:after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(12,10,8,.18) 0%, rgba(12,10,8,.08) 40%, rgba(12,10,8,.55) 100%);
-  pointer-events:none;
-}
-.mast{
-  position:relative;z-index:2;
-  width:min(920px,94vw);
-  display:flex;justify-content:space-between;
-  color:rgba(255,255,255,.78);font-size:10px;letter-spacing:.2em;font-weight:700;
-  margin-bottom:14px;text-transform:uppercase;
-}
-.hero-cta{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px}
-.hero .btn-ghost{background:rgba(0,0,0,.35);backdrop-filter:blur(8px)}
-section.page{padding:88px 24px 96px}
-.wrap{max-width:1080px;margin:0 auto}
-.running{
-  display:flex;justify-content:space-between;
-  font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--muted);
-  border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:34px;
-}
-h2{
-  font-family:"Barlow Condensed",sans-serif;font-weight:800;
-  font-size:clamp(48px,8vw,84px);letter-spacing:-.03em;line-height:.9;margin-bottom:14px;
-}
-.deck{
-  font-family:"Libre Baskerville",Georgia,serif;font-style:italic;
-  font-size:clamp(18px,2.1vw,24px);line-height:1.35;margin-bottom:28px;max-width:920px;
-}
+.links{display:flex;gap:22px}.links a{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--lime);color:var(--ink);font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px}
+.btn-ghost{background:rgba(0,0,0,.35);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:28px 20px 34px;overflow:hidden;background:#d9d3c8}
+.room{position:absolute;inset:0;pointer-events:none}
+.wall{position:absolute;inset:0 0 42%;background:linear-gradient(#ece7de,#ddd6cb)}
+.sofa{position:absolute;left:6%;right:28%;bottom:40%;height:22%;background:linear-gradient(#b9b6b1,#9e9b96);border-radius:28px 28px 0 0}
+.plant{position:absolute;right:8%;bottom:48%;width:120px;height:160px;background:radial-gradient(circle at 40% 30%,#4c8a55 0 28px,transparent 29px),radial-gradient(circle at 70% 55%,#2f6a3d 0 32px,transparent 33px);}
+.plant:after{content:"";position:absolute;left:50%;bottom:-18px;width:70px;height:70px;margin-left:-35px;background:#2b2b2b;border-radius:50%}
+.oak{position:absolute;left:-4%;right:-4%;bottom:0;height:48%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px),linear-gradient(#c9a36a,#9a7340)}
+.mags{position:absolute;left:50%;bottom:12%;width:min(900px,92vw);height:56%;transform:translateX(-50%)}
+.mag{position:absolute;width:38%;aspect-ratio:1/1.04;background:#7d7d7d;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.28);color:#fff;padding:7%;font-family:"Barlow Condensed",sans-serif;overflow:hidden}
+.mag b{display:block;font-size:clamp(26px,4.6vw,58px);line-height:.82;letter-spacing:-.04em}
+.mag em{display:block;font-style:normal;font-size:10px;letter-spacing:.16em;opacity:.85;margin-bottom:6px}
+.mag i{display:block;font-style:normal;color:#e3f15a;font-size:12px;margin-bottom:8px;font-weight:700}
+.seat{position:absolute;right:8%;bottom:10%;width:42%;height:54%;background:#171717;border-radius:8px 8px 0 0}
+.chair{position:absolute;right:10%;bottom:10%;width:28%;height:42%;border:7px solid #e3f15a;border-radius:6px}
+.bag{position:absolute;right:22%;bottom:16%;width:14%;height:18%;background:#c9a8e8;border-radius:6px}
+.mug{position:absolute;left:8%;bottom:40%;width:48px;height:42px;background:#efe6d8;border-radius:0 0 14px 14px}
+.a{left:4%;bottom:18%;transform:rotate(-11deg)}
+.b{left:31%;bottom:2%;transform:rotate(3deg);z-index:2;width:42%}
+.c{right:2%;bottom:16%;transform:rotate(12deg)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.08),transparent 40%,rgba(20,16,12,.4));pointer-events:none}
+.mast{position:relative;z-index:2;width:min(920px,94vw);display:flex;justify-content:space-between;color:rgba(255,255,255,.8);font-size:10px;letter-spacing:.2em;font-weight:700;margin-bottom:14px;text-transform:uppercase}
+.hero-cta{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+section.page{padding:88px 24px 96px}.wrap{max-width:1080px;margin:0 auto}
+.running{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:34px}
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(48px,8vw,84px);letter-spacing:-.03em;line-height:.9;margin-bottom:14px}
+.deck{font-family:"Libre Baskerville",Georgia,serif;font-style:italic;font-size:clamp(18px,2.1vw,24px);line-height:1.35;margin-bottom:28px;max-width:920px}
 .deck.plain{font-family:"DM Sans",sans-serif;font-style:normal;font-size:18px;color:#333}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;line-height:1.6;font-size:16.5px;color:#222}
-.band{
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;
-  border-top:1px solid rgba(17,17,17,.18);margin-top:34px;padding-top:18px;
-}
-.band b{font-family:"Barlow Condensed",sans-serif;font-size:34px;letter-spacing:-.02em}
-.band span{color:#333}
-.whats{
-  background:#fff;border-radius:16px;padding:26px 28px;margin:32px 0 22px;
-  box-shadow:0 18px 40px rgba(0,0,0,.06);
-}
+.band{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;border-top:1px solid rgba(17,17,17,.18);margin-top:34px;padding-top:18px}
+.band b{font-family:"Barlow Condensed",sans-serif;font-size:34px}
+.whats{background:#fff;border-radius:16px;padding:26px 28px;margin:32px 0 22px;box-shadow:0 18px 40px rgba(0,0,0,.06)}
 .whats h3{font-size:11px;letter-spacing:.16em;margin-bottom:14px}
 .whats ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
-.whats li{list-style:none;padding-left:18px;position:relative;font-size:15px;line-height:1.35}
+.whats li{list-style:none;padding-left:18px;position:relative;font-size:15px}
 .whats li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:var(--lime)}
 .photo{width:100%;border-radius:10px}
 .bleed{margin:8px 0 0;overflow:hidden;border-radius:12px;background:#d7c3a4}
 .bleed img{width:100%;height:280px;object-fit:cover;object-position:center 20%}
-.search{
-  display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;
-  padding:15px 18px;margin:16px 0;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:500;
-}
+.search{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:15px 18px;margin:16px 0;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:500}
 .search.outline{box-shadow:none;border:1.5px solid #7ec4ef}
 .end{display:flex;justify-content:flex-end;margin-top:10px}
 .split{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start;margin-top:8px}
-.step{margin:0 0 26px}
-.n{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}
-.step h3{font-size:19px;margin:5px 0 6px}
-.step p{font-size:14.5px;line-height:1.5;color:#444}
+.step{margin:0 0 26px}.n{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+.step h3{font-size:19px;margin:5px 0 6px}.step p{font-size:14.5px;line-height:1.5;color:#444}
 .caption{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.14em;margin-top:12px;text-transform:uppercase}
-.work{background:var(--black);color:#f3f3f3}
-.work .running{color:#8d8d8d;border-color:#262626}
-.work .deck{color:var(--lime)}
-.work .search{color:#111}
+.work{background:var(--black);color:#f3f3f3}.work .running{color:#8d8d8d;border-color:#262626}.work .deck{color:var(--lime)}.work .search{color:#111}
 .lead{max-width:760px;color:#cfcfcf;margin-bottom:20px;line-height:1.55;font-size:16px}
 .trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:32px}
 .trio h3{font-family:"Libre Baskerville",serif;font-style:italic;color:var(--lime);font-size:28px;font-weight:400}
-.trio p{color:#bdbdbd;font-size:14.5px;margin-top:8px;line-height:1.45}
+.trio p{color:#bdbdbd;font-size:14.5px;margin-top:8px}
 .pitch{background:var(--pitch)}
-.num{
-  width:26px;height:26px;border-radius:50%;background:var(--lime);
-  display:inline-flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:13px;margin-right:8px;vertical-align:middle;
-}
+.num{width:26px;height:26px;border-radius:50%;background:var(--lime);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-right:8px}
 .cards{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:14px;margin-top:32px}
-.card{border-radius:16px;padding:20px 20px 18px;min-height:176px}
-.c-burg{background:var(--burg);color:#fff}
-.c-kit{background:var(--kit)}
-.c-white{background:#fff}
-.card h3{font-size:11px;letter-spacing:.1em;margin-bottom:16px;font-weight:700}
-.big{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:36px;letter-spacing:-.02em}
+.card{border-radius:16px;padding:20px;min-height:176px}.c-burg{background:var(--burg);color:#fff}.c-kit{background:var(--kit)}.c-white{background:#fff}
+.card h3{font-size:11px;letter-spacing:.1em;margin-bottom:16px}
+.big{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:36px}
 .cities li{display:flex;justify-content:space-between;list-style:none;padding:6px 0;font-size:13.5px;border-bottom:1px solid rgba(0,0,0,.06)}
-.cities li:last-child{border:0}
 .metric{background:var(--kit);border-radius:12px;padding:14px 16px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:24px;margin-top:8px}
 .stats{display:flex;gap:32px;align-items:center;flex-wrap:wrap;margin-top:26px}
-.stats b{font-family:"Barlow Condensed",sans-serif;font-size:34px;letter-spacing:-.02em}
-.stats small{color:var(--muted);margin-left:8px;font-size:13px}
-footer{
-  background:#111;color:#eee;padding:26px 28px;
-  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  font-size:11px;letter-spacing:.12em;
-}
+.stats b{font-family:"Barlow Condensed",sans-serif;font-size:34px}.stats small{color:var(--muted);margin-left:8px}
+footer{background:#111;color:#eee;padding:26px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em}
 footer a{color:var(--lime)}
-@media(max-width:860px){
-  .links{display:none}
-  .cols,.split,.trio,.cards,.whats ul{grid-template-columns:1fr}
-  section.page{padding:56px 18px 64px}
-  .bleed img{height:210px}
-  .nav{padding:12px 16px}
-}
+@media(max-width:860px){.links{display:none}.cols,.split,.trio,.cards,.whats ul{grid-template-columns:1fr}section.page{padding:56px 18px 64px}.bleed img{height:210px}}
 </style>
 </head>
 <body>
 <header class="nav">
   <a class="brand" href="#cover">FOUND WITH FOAM</a>
   <nav class="links">
-    <a href="#note">Note</a>
-    <a href="#talent">Talent</a>
-    <a href="#work">Work</a>
-    <a href="#pitch">Pitch</a>
+    <a href="#note">Note</a><a href="#talent">Talent</a><a href="#work">Work</a><a href="#pitch">Pitch</a>
   </nav>
   <a class="btn" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
 </header>
-
 <section class="hero" id="cover">
-  <img class="hero-photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/table.svg" alt="Found with Foam Volume One on the table">
+  <div class="room" aria-hidden="true">
+    <div class="wall"></div><div class="sofa"></div><div class="plant"></div><div class="oak"></div><div class="mug"></div>
+    <div class="mags">
+      <article class="mag a"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
+      <article class="mag b"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
+      <article class="mag c"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
+    </div>
+  </div>
   <div class="mast"><span>Volume One</span><span>For Sixteenth</span></div>
   <div class="hero-cta">
     <a class="btn" href="#note">Read the issue</a>
     <a class="btn btn-ghost" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
   </div>
 </section>
-
 <section class="page" id="note">
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>VOLUME ONE</span></div>
@@ -194,22 +117,16 @@ footer a{color:var(--lime)}
       <p>Foam finds it — <strong>seen on screen, heard in a clip, written in a caption</strong> — and jumps you straight to the moment.<br><br><strong>Then it's time to pitch.</strong> Media kits now let you customize the story, kit by kit.</p>
     </div>
     <div class="band"><b>Three parts. One goal.</b><span>Your talent. Their work. Win the pitch.</span></div>
-    <div class="whats">
-      <h3>HERE'S WHAT'S NEW</h3>
-      <ul>
-        <li>Search across your whole roster</li>
-        <li>Search inside video, audio and captions</li>
-        <li>Jump directly to matching moments</li>
-        <li>Customise each media kit</li>
-        <li>Add channels, city demographics and metrics manually</li>
-      </ul>
-    </div>
-    <div class="bleed"><img src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/talent.svg" alt="Fitness creator at golden hour, New York waterfront" /></div>
+    <div class="whats"><h3>HERE'S WHAT'S NEW</h3><ul>
+      <li>Search across your whole roster</li><li>Search inside video, audio and captions</li>
+      <li>Jump directly to matching moments</li><li>Customise each media kit</li>
+      <li>Add channels, city demographics and metrics manually</li>
+    </ul></div>
+    <div class="bleed"><img src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Fitness creator at golden hour" /></div>
     <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Fitness creators in New York who wear Nike</a>
     <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search what you need →</a></div>
   </div>
 </section>
-
 <section class="page" id="talent">
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>01 / THE TALENT</span></div>
@@ -223,14 +140,13 @@ footer a{color:var(--lime)}
         <div class="step"><div class="n">03</div><h3>Build your shortlist</h3><p>Use the results to choose who belongs in the pitch.</p></div>
       </div>
       <figure>
-        <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/talent-grid.svg" alt="Illustrative talent search results" />
+        <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Illustrative talent search" />
         <figcaption class="caption">Illustrative talent search</figcaption>
       </figure>
     </div>
     <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search your roster →</a></div>
   </div>
 </section>
-
 <section class="page work" id="work">
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>02 / THE WORK</span></div>
@@ -238,7 +154,6 @@ footer a{color:var(--lime)}
     <p class="deck">Foam watches the video now.</p>
     <p class="lead">Visual search finds what appears on screen. Audio and caption search find what's said or written. Find the post, then jump to the relevant moment.</p>
     <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Anti-aging skincare posts from the last 90 days</a>
-    <img class="photo" style="margin-top:10px" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/work.svg" alt="Seen, heard and written inside Foam" />
     <div class="trio">
       <div><h3>Seen.</h3><p>What appears on screen, even when the caption doesn't name it.</p></div>
       <div><h3>Heard.</h3><p>What is said in the clip. Search for the word or phrase you need.</p></div>
@@ -247,7 +162,6 @@ footer a{color:var(--lime)}
     <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Find a post →</a></div>
   </div>
 </section>
-
 <section class="page pitch" id="pitch">
   <div class="wrap">
     <div class="running"><span>FOUND WITH FOAM</span><span>03 / THE PITCH</span></div>
@@ -262,27 +176,9 @@ footer a{color:var(--lime)}
       <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/kit.svg" alt="Samantha Pikka media kit in Foam" />
     </div>
     <div class="cards">
-      <div class="card c-burg">
-        <h3>ADD AND LINK PLATFORMS</h3>
-        <div class="big">1,155,300</div>
-        <p style="opacity:.8;font-size:12px;margin-top:4px">Total audience</p>
-        <p style="opacity:.8;font-size:13px;margin-top:22px">IG · TikTok · YouTube · +10K</p>
-      </div>
-      <div class="card c-kit">
-        <h3>CITY DISTRIBUTION</h3>
-        <ul class="cities">
-          <li><span>New York, NY</span><b>1.3%</b></li>
-          <li><span>Los Angeles, CA</span><b>0.8%</b></li>
-          <li><span>London, UK</span><b>0.7%</b></li>
-          <li><span>Chicago, IL</span><b>0.6%</b></li>
-          <li><span>Delhi, IN</span><b>0.6%</b></li>
-        </ul>
-      </div>
-      <div class="card c-white">
-        <h3>ADD A METRIC YOU HAVE</h3>
-        <div class="metric">230 &nbsp;<span style="font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif">Link clicks</span></div>
-        <p style="color:var(--muted);font-size:12px;margin-top:16px">Typed in. Not invented by an API.</p>
-      </div>
+      <div class="card c-burg"><h3>ADD AND LINK PLATFORMS</h3><div class="big">1,155,300</div><p style="opacity:.8;font-size:12px;margin-top:4px">Total audience</p><p style="opacity:.8;font-size:13px;margin-top:22px">IG · TikTok · YouTube · +10K</p></div>
+      <div class="card c-kit"><h3>CITY DISTRIBUTION</h3><ul class="cities"><li><span>New York, NY</span><b>1.3%</b></li><li><span>Los Angeles, CA</span><b>0.8%</b></li><li><span>London, UK</span><b>0.7%</b></li><li><span>Chicago, IL</span><b>0.6%</b></li><li><span>Delhi, IN</span><b>0.6%</b></li></ul></div>
+      <div class="card c-white"><h3>ADD A METRIC YOU HAVE</h3><div class="metric">230 &nbsp;<span style="font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif">Link clicks</span></div><p style="color:var(--muted);font-size:12px;margin-top:16px">Typed in. Not invented by an API.</p></div>
     </div>
     <div class="stats">
       <div><b>1,000</b><small>bio chars · was 550</small></div>
