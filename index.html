@@ -1,195 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Found with Foam — Volume One</title>
-<meta name="description" content="Foam search now reads your whole roster, looks inside every post and ranks by fit." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
-<style>
-:root{--ink:#111;--cream:#f3efe6;--lime:#e3f15a;--muted:#6b6b6b;--line:rgba(17,17,17,.12);--pitch:#e4e7dc;--burg:#5b1634;--kit:#f4eee6;--black:#0b0b0b}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
-.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:rgba(243,239,230,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.brand{font-family:"Barlow Condensed",sans-serif;font-weight:800;letter-spacing:.16em;font-size:13px}
-.links{display:flex;gap:22px}.links a{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}.links a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--lime);color:var(--ink);font-weight:700;font-size:14px;padding:12px 20px;border-radius:999px}
-.btn-ghost{background:rgba(0,0,0,.35);color:#fff;border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px)}
-.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:28px 20px 34px;overflow:hidden;background:#d9d3c8}
-.room{position:absolute;inset:0;pointer-events:none}
-.wall{position:absolute;inset:0 0 42%;background:linear-gradient(#ece7de,#ddd6cb)}
-.sofa{position:absolute;left:6%;right:28%;bottom:40%;height:22%;background:linear-gradient(#b9b6b1,#9e9b96);border-radius:28px 28px 0 0}
-.plant{position:absolute;right:8%;bottom:48%;width:120px;height:160px;background:radial-gradient(circle at 40% 30%,#4c8a55 0 28px,transparent 29px),radial-gradient(circle at 70% 55%,#2f6a3d 0 32px,transparent 33px);}
-.plant:after{content:"";position:absolute;left:50%;bottom:-18px;width:70px;height:70px;margin-left:-35px;background:#2b2b2b;border-radius:50%}
-.oak{position:absolute;left:-4%;right:-4%;bottom:0;height:48%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px),linear-gradient(#c9a36a,#9a7340)}
-.mags{position:absolute;left:50%;bottom:12%;width:min(900px,92vw);height:56%;transform:translateX(-50%)}
-.mag{position:absolute;width:38%;aspect-ratio:1/1.04;background:#7d7d7d;border-radius:3px;box-shadow:0 18px 40px rgba(0,0,0,.28);color:#fff;padding:7%;font-family:"Barlow Condensed",sans-serif;overflow:hidden}
-.mag b{display:block;font-size:clamp(26px,4.6vw,58px);line-height:.82;letter-spacing:-.04em}
-.mag em{display:block;font-style:normal;font-size:10px;letter-spacing:.16em;opacity:.85;margin-bottom:6px}
-.mag i{display:block;font-style:normal;color:#e3f15a;font-size:12px;margin-bottom:8px;font-weight:700}
-.seat{position:absolute;right:8%;bottom:10%;width:42%;height:54%;background:#171717;border-radius:8px 8px 0 0}
-.chair{position:absolute;right:10%;bottom:10%;width:28%;height:42%;border:7px solid #e3f15a;border-radius:6px}
-.bag{position:absolute;right:22%;bottom:16%;width:14%;height:18%;background:#c9a8e8;border-radius:6px}
-.mug{position:absolute;left:8%;bottom:40%;width:48px;height:42px;background:#efe6d8;border-radius:0 0 14px 14px}
-.a{left:4%;bottom:18%;transform:rotate(-11deg)}
-.b{left:31%;bottom:2%;transform:rotate(3deg);z-index:2;width:42%}
-.c{right:2%;bottom:16%;transform:rotate(12deg)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,12,.08),transparent 40%,rgba(20,16,12,.4));pointer-events:none}
-.mast{position:relative;z-index:2;width:min(920px,94vw);display:flex;justify-content:space-between;color:rgba(255,255,255,.8);font-size:10px;letter-spacing:.2em;font-weight:700;margin-bottom:14px;text-transform:uppercase}
-.hero-cta{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-section.page{padding:88px 24px 96px}.wrap{max-width:1080px;margin:0 auto}
-.running{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:34px}
-h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(48px,8vw,84px);letter-spacing:-.03em;line-height:.9;margin-bottom:14px}
-.deck{font-family:"Libre Baskerville",Georgia,serif;font-style:italic;font-size:clamp(18px,2.1vw,24px);line-height:1.35;margin-bottom:28px;max-width:920px}
-.deck.plain{font-family:"DM Sans",sans-serif;font-style:normal;font-size:18px;color:#333}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;line-height:1.6;font-size:16.5px;color:#222}
-.band{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;border-top:1px solid rgba(17,17,17,.18);margin-top:34px;padding-top:18px}
-.band b{font-family:"Barlow Condensed",sans-serif;font-size:34px}
-.whats{background:#fff;border-radius:16px;padding:26px 28px;margin:32px 0 22px;box-shadow:0 18px 40px rgba(0,0,0,.06)}
-.whats h3{font-size:11px;letter-spacing:.16em;margin-bottom:14px}
-.whats ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
-.whats li{list-style:none;padding-left:18px;position:relative;font-size:15px}
-.whats li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:var(--lime)}
-.photo{width:100%;border-radius:10px}
-.bleed{margin:8px 0 0;overflow:hidden;border-radius:12px;background:#d7c3a4}
-.bleed img{width:100%;height:280px;object-fit:cover;object-position:center 20%}
-.search{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:15px 18px;margin:16px 0;box-shadow:0 10px 24px rgba(0,0,0,.08);font-weight:500}
-.search.outline{box-shadow:none;border:1.5px solid #7ec4ef}
-.end{display:flex;justify-content:flex-end;margin-top:10px}
-.split{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start;margin-top:8px}
-.step{margin:0 0 26px}.n{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}
-.step h3{font-size:19px;margin:5px 0 6px}.step p{font-size:14.5px;line-height:1.5;color:#444}
-.caption{text-align:center;color:var(--muted);font-size:11px;letter-spacing:.14em;margin-top:12px;text-transform:uppercase}
-.work{background:var(--black);color:#f3f3f3}.work .running{color:#8d8d8d;border-color:#262626}.work .deck{color:var(--lime)}.work .search{color:#111}
-.lead{max-width:760px;color:#cfcfcf;margin-bottom:20px;line-height:1.55;font-size:16px}
-.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:32px}
-.trio h3{font-family:"Libre Baskerville",serif;font-style:italic;color:var(--lime);font-size:28px;font-weight:400}
-.trio p{color:#bdbdbd;font-size:14.5px;margin-top:8px}
-.pitch{background:var(--pitch)}
-.num{width:26px;height:26px;border-radius:50%;background:var(--lime);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-right:8px}
-.cards{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:14px;margin-top:32px}
-.card{border-radius:16px;padding:20px;min-height:176px}.c-burg{background:var(--burg);color:#fff}.c-kit{background:var(--kit)}.c-white{background:#fff}
-.card h3{font-size:11px;letter-spacing:.1em;margin-bottom:16px}
-.big{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:36px}
-.cities li{display:flex;justify-content:space-between;list-style:none;padding:6px 0;font-size:13.5px;border-bottom:1px solid rgba(0,0,0,.06)}
-.metric{background:var(--kit);border-radius:12px;padding:14px 16px;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:24px;margin-top:8px}
-.stats{display:flex;gap:32px;align-items:center;flex-wrap:wrap;margin-top:26px}
-.stats b{font-family:"Barlow Condensed",sans-serif;font-size:34px}.stats small{color:var(--muted);margin-left:8px}
-footer{background:#111;color:#eee;padding:26px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em}
-footer a{color:var(--lime)}
-@media(max-width:860px){.links{display:none}.cols,.split,.trio,.cards,.whats ul{grid-template-columns:1fr}section.page{padding:56px 18px 64px}.bleed img{height:210px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Found with Foam — Volume One</title>
+  <meta name="description" content="Your talent. Their work. Win the pitch. Discover smarter roster search, the moments inside every post, and media kits made for your next brief.">
+  <meta property="og:title" content="Found with Foam — Volume One">
+  <meta property="og:description" content="Foam just got even sharper. An issue for Sixteenth.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/magazine-table.webp">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/dm-sans-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-sans-extrabold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#cover">FOUND WITH FOAM</a>
-  <nav class="links">
-    <a href="#note">Note</a><a href="#talent">Talent</a><a href="#work">Work</a><a href="#pitch">Pitch</a>
-  </nav>
-  <a class="btn" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
-</header>
-<section class="hero" id="cover">
-  <div class="room" aria-hidden="true">
-    <div class="wall"></div><div class="sofa"></div><div class="plant"></div><div class="oak"></div><div class="mug"></div>
-    <div class="mags">
-      <article class="mag a"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
-      <article class="mag b"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
-      <article class="mag c"><em>VOLUME ONE</em><i>Foam just got even sharper</i><b>FOUND<br>WITH<br>FOAM</b><span class="seat"></span><span class="chair"></span><span class="bag"></span></article>
-    </div>
-  </div>
-  <div class="mast"><span>Volume One</span><span>For Sixteenth</span></div>
-  <div class="hero-cta">
-    <a class="btn" href="#note">Read the issue</a>
-    <a class="btn btn-ghost" href="https://foam.io" target="_blank" rel="noopener">Open Foam →</a>
-  </div>
-</section>
-<section class="page" id="note">
-  <div class="wrap">
-    <div class="running"><span>FOUND WITH FOAM</span><span>VOLUME ONE</span></div>
-    <h2>Found with Foam.</h2>
-    <p class="deck">Not because anything was lost. Because now it's easier to find.</p>
-    <div class="cols">
-      <p>The right Creator, the second a brief lands. The post from months ago nobody remembers — until it's exactly what the brand is asking for.<br><br><strong>Search now reads your whole roster.</strong> Ask for what you need the way you'd say it out loud.</p>
-      <p>Foam finds it — <strong>seen on screen, heard in a clip, written in a caption</strong> — and jumps you straight to the moment.<br><br><strong>Then it's time to pitch.</strong> Media kits now let you customize the story, kit by kit.</p>
-    </div>
-    <div class="band"><b>Three parts. One goal.</b><span>Your talent. Their work. Win the pitch.</span></div>
-    <div class="whats"><h3>HERE'S WHAT'S NEW</h3><ul>
-      <li>Search across your whole roster</li><li>Search inside video, audio and captions</li>
-      <li>Jump directly to matching moments</li><li>Customise each media kit</li>
-      <li>Add channels, city demographics and metrics manually</li>
-    </ul></div>
-    <div class="bleed"><img src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Fitness creator at golden hour" /></div>
-    <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Fitness creators in New York who wear Nike</a>
-    <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search what you need →</a></div>
-  </div>
-</section>
-<section class="page" id="talent">
-  <div class="wrap">
-    <div class="running"><span>FOUND WITH FOAM</span><span>01 / THE TALENT</span></div>
-    <h2>Find your Talent.</h2>
-    <p class="deck plain">The right Creator could already be on your roster. Ask for what the brief needs, in your own words.</p>
-    <a class="search outline" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Creators on my roster who post healthy vegetarian recipes</a>
-    <div class="split">
-      <div>
-        <div class="step"><div class="n">01</div><h3>Describe the brief</h3><p>Include the location, interests or content you need.</p></div>
-        <div class="step"><div class="n">02</div><h3>Review the fit</h3><p>Foam ranks your roster and brings back relevant posts.</p></div>
-        <div class="step"><div class="n">03</div><h3>Build your shortlist</h3><p>Use the results to choose who belongs in the pitch.</p></div>
+  <a class="skip-link" href="#note">Skip to the issue</a>
+  <header class="site-header">
+    <a class="brand" href="#cover" aria-label="Found with Foam, back to cover">FOUND <span>WITH</span> FOAM<span class="brand-dot">.</span></a>
+    <nav class="chapter-nav" aria-label="Issue chapters">
+      <a href="#note">The issue</a>
+      <a href="#talent"><span>01</span> Talent</a>
+      <a href="#work"><span>02</span> Work</a>
+      <a href="#pitch"><span>03</span> Pitch</a>
+    </nav>
+    <a class="header-link" href="https://fluid.foam.io/" target="_blank" rel="noopener noreferrer">Open Foam <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="cover" id="cover" aria-labelledby="cover-title">
+      <div class="issue-label"><span>THE FOAM EDITORIAL</span><span>VOLUME ONE <span class="label-divider">/</span> FOR SIXTEENTH</span></div>
+      <h1 id="cover-title" class="sr-only">Found with Foam. Volume One.</h1>
+      <img class="cover-photo" src="assets/images/magazine-table.webp" srcset="assets/images/magazine-table-small.webp 960w, assets/images/magazine-table.webp 1672w" sizes="100vw" width="1672" height="941" alt="Three copies of Found with Foam, Volume One, arranged on an oak table, photographed from above." fetchpriority="high">
+      <div class="cover-bottom">
+        <div><p class="eyebrow">YOUR TALENT. THEIR WORK. WIN THE PITCH.</p><p class="cover-line">Foam just got <em>even sharper.</em></p></div>
+        <a class="button" href="#note">Read the issue <span aria-hidden="true">↓</span></a>
       </div>
-      <figure>
-        <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/fitness.svg" alt="Illustrative talent search" />
-        <figcaption class="caption">Illustrative talent search</figcaption>
-      </figure>
-    </div>
-    <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Search your roster →</a></div>
-  </div>
-</section>
-<section class="page work" id="work">
-  <div class="wrap">
-    <div class="running"><span>FOUND WITH FOAM</span><span>02 / THE WORK</span></div>
-    <h2>Find the work.</h2>
-    <p class="deck">Foam watches the video now.</p>
-    <p class="lead">Visual search finds what appears on screen. Audio and caption search find what's said or written. Find the post, then jump to the relevant moment.</p>
-    <a class="search" href="https://foam.io" target="_blank" rel="noopener">⌕ &nbsp; Anti-aging skincare posts from the last 90 days</a>
-    <div class="trio">
-      <div><h3>Seen.</h3><p>What appears on screen, even when the caption doesn't name it.</p></div>
-      <div><h3>Heard.</h3><p>What is said in the clip. Search for the word or phrase you need.</p></div>
-      <div><h3>Written.</h3><p>What appears in the caption.</p></div>
-    </div>
-    <div class="end"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Find a post →</a></div>
-  </div>
-</section>
-<section class="page pitch" id="pitch">
-  <div class="wrap">
-    <div class="running"><span>FOUND WITH FOAM</span><span>03 / THE PITCH</span></div>
-    <h2>Make the pitch.</h2>
-    <p class="deck plain">Customize the story to win the deal.</p>
-    <div class="split">
-      <div>
-        <div class="step"><h3><span class="num">1</span>Make it unique</h3><p>Edit the bio, profile picture and verticals, kit by kit.</p></div>
-        <div class="step"><h3><span class="num">2</span>Build the story</h3><p>Pick content and analytics with the builder in view. Link platforms. Include city demographics.</p></div>
-        <div class="step"><h3><span class="num">3</span>Close the deal</h3><p>Type in lower-funnel metrics APIs don't give you — like Instagram link clicks.</p></div>
+    </section>
+
+    <section class="page note" id="note" aria-labelledby="note-title">
+      <div class="wrap">
+        <div class="running"><span>FOUND WITH FOAM</span><span>A NOTE TO SIXTEENTH</span></div>
+        <h2 id="note-title">Found with Foam.</h2>
+        <p class="editorial-deck">Not because anything was lost.<br>Because now it’s easier to find.</p>
+        <div class="note-columns">
+          <div><p>The right Creator, the second a brief lands. The post from months ago nobody remembers — until it’s exactly what the brand is asking for.</p><p><strong>Search now reads your whole roster.</strong> Ask for what you need the way you’d say it out loud.</p></div>
+          <div><p>Foam finds it — <strong>seen on screen, heard in a clip, written in a caption</strong> — and jumps you straight to the moment.</p><p><strong>Then it’s time to pitch.</strong> Media kits now let you customize the story, kit by kit.</p></div>
+        </div>
+        <div class="goal-line"><h3>Three parts. One goal.</h3><p>Your talent. Their work. Win the pitch.</p></div>
+        <div class="new-features"><p class="eyebrow">HERE’S WHAT’S NEW</p><ul><li>Search across your whole roster</li><li>Customize each media kit</li><li>Search inside video, audio and captions</li><li>Add channels and city demographics</li><li>Jump directly to matching moments</li><li>Add the metrics you have, manually</li></ul></div>
+        <figure class="fitness-feature">
+          <img src="assets/images/fitness.webp" width="952" height="425" loading="lazy" alt="Fitness creator overlooking the waterfront and city skyline at golden hour.">
+          <figcaption><span class="pill">ILLUSTRATIVE SEARCH</span><p class="search-example"><span class="search-icon" aria-hidden="true"></span><span>Fitness creators in New York who wear Nike</span></p></figcaption>
+        </figure>
+        <div class="section-end"><span class="page-number">02 <span>/ THE INTRODUCTION</span></span><a class="button" href="https://fluid.foam.io/talent-directory" target="_blank" rel="noopener noreferrer">Search what you need <span aria-hidden="true">↗</span></a></div>
       </div>
-      <img class="photo" src="https://raw.githubusercontent.com/SteveBlackboxapi/found-with-foam/main/assets/kit.svg" alt="Samantha Pikka media kit in Foam" />
-    </div>
-    <div class="cards">
-      <div class="card c-burg"><h3>ADD AND LINK PLATFORMS</h3><div class="big">1,155,300</div><p style="opacity:.8;font-size:12px;margin-top:4px">Total audience</p><p style="opacity:.8;font-size:13px;margin-top:22px">IG · TikTok · YouTube · +10K</p></div>
-      <div class="card c-kit"><h3>CITY DISTRIBUTION</h3><ul class="cities"><li><span>New York, NY</span><b>1.3%</b></li><li><span>Los Angeles, CA</span><b>0.8%</b></li><li><span>London, UK</span><b>0.7%</b></li><li><span>Chicago, IL</span><b>0.6%</b></li><li><span>Delhi, IN</span><b>0.6%</b></li></ul></div>
-      <div class="card c-white"><h3>ADD A METRIC YOU HAVE</h3><div class="metric">230 &nbsp;<span style="font-size:16px;font-weight:700;font-family:'DM Sans',sans-serif">Link clicks</span></div><p style="color:var(--muted);font-size:12px;margin-top:16px">Typed in. Not invented by an API.</p></div>
-    </div>
-    <div class="stats">
-      <div><b>1,000</b><small>bio chars · was 550</small></div>
-      <div><b>100</b><small>list-name chars · was 40</small></div>
-      <div style="margin-left:auto"><a class="btn" href="https://foam.io" target="_blank" rel="noopener">Build a media kit →</a></div>
-    </div>
-  </div>
-</section>
-<footer>
-  <span>FOUND WITH FOAM · VOLUME ONE · FOR SIXTEENTH</span>
-  <a href="https://foam.io" target="_blank" rel="noopener">OPEN FOAM · FOAM.IO</a>
-</footer>
+    </section>
+
+    <section class="page talent" id="talent" aria-labelledby="talent-title">
+      <div class="wrap">
+        <div class="running"><span>FOUND WITH FOAM</span><span>01 / THE TALENT</span></div>
+        <h2 id="talent-title">Find your Talent.</h2>
+        <p class="section-deck">The right Creator could already be on your roster.<br>Ask for what the brief needs, in your own words.</p>
+        <p class="eyebrow search-label">START IN TALENT DIRECTORY</p>
+        <p class="search-example search-outlined"><span class="search-icon" aria-hidden="true"></span><span>Creators on my roster who post healthy vegetarian recipes</span></p>
+        <div class="talent-layout">
+          <ol class="steps">
+            <li><span class="step-number">01</span><h3>Describe the brief</h3><p>Include the location, interests or content you need.</p></li>
+            <li><span class="step-number">02</span><h3>Review the fit</h3><p>Foam ranks your roster and brings back relevant posts.</p></li>
+            <li><span class="step-number">03</span><h3>Build your shortlist</h3><p>Use the results to choose who belongs in the pitch.</p></li>
+          </ol>
+          <figure class="talent-results"><img src="assets/images/talent-results.webp" width="1000" height="1149" loading="lazy" alt="Six matching vegetarian recipe posts: creators cooking, eggs and sourdough, chopped herbs, roasted vegetables and a grain bowl. Each result shows its match and engagement."><figcaption class="caption">ILLUSTRATIVE TALENT SEARCH</figcaption></figure>
+        </div>
+        <div class="section-end"><span class="page-number">03 <span>/ THE TALENT</span></span><a class="button" href="https://fluid.foam.io/talent-directory" target="_blank" rel="noopener noreferrer">Search your roster <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="page work" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="running"><span>FOUND WITH FOAM</span><span>02 / THE WORK</span></div>
+        <h2 id="work-title">Find the work.</h2>
+        <p class="editorial-deck">Foam watches the video now.</p>
+        <p class="work-intro">Visual search finds what appears on screen. Audio and caption search find what’s said or written. Find the post, then jump to the relevant moment.</p>
+        <p class="eyebrow search-label">START IN EXPLORE CONTENT</p>
+        <p class="search-example"><span class="search-icon" aria-hidden="true"></span><span>Anti-aging skincare posts from the last 90 days</span></p>
+        <div class="work-example">
+          <figure>
+            <div class="skincare-grid">
+              <div class="post"><img src="assets/images/skincare-1.jpg" width="212" height="392" loading="lazy" alt="Skincare creator with dewy skin."><span>Strong Match <span aria-hidden="true">◎ #</span></span></div>
+              <div class="post"><img src="assets/images/skincare-2.jpg" width="212" height="392" loading="lazy" alt="Skincare creator discussing mature skin."><span>Strong Match <span aria-hidden="true">◎ #</span></span></div>
+              <a class="post post-selected" href="#matching-moments" aria-label="Explore the matching moments in the highlighted skincare example"><img src="assets/images/skincare-3.jpg" width="153" height="308" loading="lazy" alt="Creator demonstrating a facial skincare tool."><span>View the match <span aria-hidden="true">↗</span></span></a>
+              <div class="post"><img src="assets/images/skincare-4.jpg" width="212" height="392" loading="lazy" alt="Creator using a facial roller."><span>Strong Match <span aria-hidden="true">◎ #</span></span></div>
+              <div class="post"><img src="assets/images/skincare-5.jpg" width="212" height="392" loading="lazy" alt="Creator applying a skincare serum."><span>Strong Match <span aria-hidden="true">◎ #</span></span></div>
+              <div class="post"><img src="assets/images/skincare-6.jpg" width="212" height="392" loading="lazy" alt="Creator holding a skincare product."><span>Strong Match <span aria-hidden="true">◎ #</span></span></div>
+            </div>
+            <figcaption class="caption">ILLUSTRATIVE IMAGERY IN THE FOAM INTERFACE</figcaption>
+          </figure>
+          <span class="example-arrow" aria-hidden="true">→</span>
+          <div class="result-example" id="matching-moments" tabindex="-1" aria-labelledby="result-title">
+            <p class="eyebrow result-label" id="result-title">INSIDE A MATCH</p>
+            <div class="evidence-panel">
+              <p class="match-summary">This content strongly matches your search for <strong>“anti-aging skincare”.</strong><br>Evidence found in visuals, caption, and audio.</p>
+              <h3><span aria-hidden="true">◎</span> Seen <span>(3)</span></h3>
+              <div class="moments">
+                <div class="moment"><span class="timestamp">▷ &nbsp; 0:16 – 0:22</span><img src="assets/images/skincare-moment.jpg" width="203" height="230" loading="lazy" alt="Visual skincare match at 16 seconds."><span class="moment-tag">anti-aging skincare</span></div>
+                <div class="moment"><span class="timestamp">▷ &nbsp; 0:59 – 1:05</span><img src="assets/images/skincare-moment.jpg" width="203" height="230" loading="lazy" alt="Visual skincare match at 59 seconds."><span class="moment-tag">anti-aging skincare</span></div>
+                <div class="moment"><span class="timestamp">▷ &nbsp; 1:08</span><img src="assets/images/skincare-moment.jpg" width="203" height="230" loading="lazy" alt="Visual skincare match at 1 minute 8 seconds."><span class="moment-tag">anti-aging skincare</span></div>
+              </div>
+              <h3><span aria-hidden="true">#</span> Caption</h3><span class="caption-match">skincare</span>
+              <h3><span aria-hidden="true">◉</span> Heard <span>(1)</span></h3><div class="audio-match"><span>▷ &nbsp; 0:57 – 1:11</span><span>Speaker</span><span class="audio-wave" aria-hidden="true">▂▅▃▆▂▇▄▃▅▂</span></div>
+            </div>
+            <p class="caption">ILLUSTRATIVE PREVIEW · OPEN FOAM TO EXPLORE TIMESTAMPS</p>
+          </div>
+        </div>
+        <div class="three-signals">
+          <div><span class="signal-number">01</span><h3>Seen.</h3><p>What appears on screen, even when the caption doesn’t name it.</p></div>
+          <div><span class="signal-number">02</span><h3>Heard.</h3><p>What is said in the clip. Search for the word or phrase you need.</p></div>
+          <div><span class="signal-number">03</span><h3>Written.</h3><p>What appears in the caption.</p></div>
+        </div>
+        <div class="section-end"><span class="page-number">04 <span>/ THE WORK</span></span><a class="button" href="https://fluid.foam.io/content-feed" target="_blank" rel="noopener noreferrer">Find a post <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="page pitch" id="pitch" aria-labelledby="pitch-title">
+      <div class="wrap">
+        <div class="running"><span>FOUND WITH FOAM</span><span>03 / THE PITCH</span></div>
+        <h2 id="pitch-title">Make the pitch.</h2>
+        <p class="section-deck">Customize the story to win the deal.</p>
+        <div class="pitch-layout">
+          <ol class="steps pitch-steps">
+            <li><span class="step-number">1</span><h3>Make it unique</h3><p>Each media kit can be customized: edit the bio, profile picture and verticals.</p></li>
+            <li><span class="step-number">2</span><h3>Build the story</h3><p>Pick content and analytics with the builder in view. Add and link any key platforms that contribute to total audience count. You can now include city demographics, too.</p></li>
+            <li><span class="step-number">3</span><h3>Close the deal</h3><p>Add lower-funnel custom metrics not available via APIs manually, such as Instagram link clicks.</p></li>
+          </ol>
+          <figure class="kit-figure"><img src="assets/images/media-kit.webp" width="1050" height="898" loading="lazy" alt="The Foam media kit builder showing Samantha Pikka’s customized profile, platform links and total audience of 1,155,300."><figcaption class="caption">YOUR STORY. YOUR CONTENT. YOUR MEDIA KIT.</figcaption></figure>
+        </div>
+        <div class="pitch-cards">
+          <div class="detail-card platform-card"><h3>ADD AND LINK PLATFORMS</h3><div class="linkedin"><span aria-label="LinkedIn">in</span><strong>10K</strong></div><p class="audience-count">1,155,300</p><p class="detail-note">IG · TikTok · YouTube · +10K</p></div>
+          <div class="detail-card city-card"><h3>CITY DISTRIBUTION</h3><p class="city-intro">Top 5 cities</p><ul><li><span>New York, New York</span><strong>1.3%</strong></li><li><span>Los Angeles, California</span><strong>0.8%</strong></li><li><span>Maku, West Azerbaijan Province</span><strong>0.7%</strong></li><li><span>Chicago, Illinois</span><strong>0.6%</strong></li><li><span>Delhi, Delhi</span><strong>0.6%</strong></li></ul></div>
+          <div class="detail-card metric-card"><h3>ADD A METRIC YOU HAVE</h3><div class="custom-metric"><span aria-hidden="true">◇</span><p><strong>230</strong><span>Link clicks</span></p><span class="metric-check" aria-hidden="true">✓</span></div><p class="detail-note">Typed in. Not invented by an API.</p></div>
+        </div>
+        <div class="limits"><div><strong>1,000</strong><p>bio characters<span>Previously 550</span></p></div><div><strong>100</strong><p>list-name characters<span>Previously 40</span></p></div></div>
+        <div class="section-end"><span class="page-number">05 <span>/ THE PITCH</span></span><a class="button" href="https://fluid.foam.io/media-kits" target="_blank" rel="noopener noreferrer">Build a media kit <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="wrap closing-layout"><div><p class="eyebrow">FOUND WITH FOAM / VOLUME ONE</p><h2 id="closing-title">Your talent.<br>Their work.<br><em>Win the pitch.</em></h2><a class="button" href="https://fluid.foam.io/" target="_blank" rel="noopener noreferrer">Over to you <span aria-hidden="true">↗</span></a><a class="pdf-link" href="assets/documents/found-with-foam-volume-one.pdf" download>Download the original issue <span>PDF · 4 MB ↓</span></a></div><a class="original-cover" href="assets/documents/found-with-foam-volume-one.pdf" target="_blank" rel="noopener" aria-label="View the original Volume One PDF"><img src="assets/images/volume-one-cover.webp" width="1400" height="1812" loading="lazy" alt="The original Found with Foam Volume One cover."></a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#cover">FOUND <span>WITH</span> FOAM.</a><p>VOLUME ONE · FOR SIXTEENTH</p><a href="#cover">Back to the cover ↑</a></footer>
 </body>
 </html>
