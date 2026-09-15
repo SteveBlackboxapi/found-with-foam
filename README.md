@@ -1,9 +1,9 @@
 # Found with Foam — Volume One
 
-Magazine site for Sixteenth. Same issue structure as the PDF, with website nav and CTAs.
+Editorial magazine site for Sixteenth. Same issue as the PDF, with website nav and live CTAs.
 
-- Preview: https://htmlpreview.github.io/?https://github.com/SteveBlackboxapi/found-with-foam/blob/main/index.html
-- Pages (after enabling): https://steveblackboxapi.github.io/found-with-foam/
-- Product: https://foam.io
+**Share this:** https://htmlpreview.github.io/?https://github.com/SteveBlackboxapi/found-with-foam/blob/main/index.html
 
-Drop `assets/` (cover, fitness, talent-grid, work-ui, kit) next to `index.html` so photography loads.
+Pages (turn on Settings → Pages → GitHub Actions): https://steveblackboxapi.github.io/found-with-foam/
+
+Product: https://foam.io
