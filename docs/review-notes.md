@@ -25,7 +25,6 @@
 - Browser access failed before navigation because its administrator-policy security check was unavailable. No desktop/mobile screenshot review or interactive browser test was completed. Responsive layouts are implemented but still need visual review.
 - The hero is generated artwork, not a pixel-exact texture placement. Its fine print can differ from the reference. The standalone cover and PDF preserve the actual source artwork.
 - The live GitHub Pages URL returns 404. Existing deployment run 35013772331 fails at Configure Pages with “Get Pages site failed”; Pages must be enabled with GitHub Actions as its source before deployment can succeed.
-- Uploading the supplied PDF and derived imagery to the public repository was blocked by automatic approval review pending explicit user approval. No remote branch or pull request has been created.
 
 Local preview: http://127.0.0.1:4173/
 
